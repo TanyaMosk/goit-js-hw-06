@@ -1,19 +1,19 @@
 const inputLength = document.querySelector("#validation-input");
 
-const maxLength = inputLength.getAttribute("data-length"); 
+const maxLength = inputLength.getAttribute("data-length");
+
 
 inputLength.addEventListener("blur", onblur);
-function onblur() {  
+function onblur() {
   const valueInput = inputLength.value;
-  const trimValueInput = valueInput.trim();
-  const valueInputLength = trimValueInput.length;
+  const trimValueInput = valueInput.trim(); 
 
-  if (maxLength > valueInputLength) {
-    inputLength.classList.remove("valid");
-    inputLength.classList.add("invalid");
-  } else {
+  if (Number(maxLength) === trimValueInput.length) {
     inputLength.classList.remove("invalid");
     inputLength.classList.add("valid");
+  } else {
+    inputLength.classList.add("invalid");
+    inputLength.classList.remove("valid");
   }
-  console.log(valueInputLength);
+  console.log(trimValueInput.length);
 }

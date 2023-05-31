@@ -7,8 +7,14 @@ function onFormSubmit(event) {
     elements: { email, password },
   } = event.currentTarget;
   if (email.value === "" || password.value === "") {
-    return console.log("Заповніть всі поля");
+    // return console.log("Заповніть всі поля");
+    return alert("Заповніть всі поля");
+    
   }
-  console.log(`Email: ${email.value}, Password: ${password.value}`);
-  // event.currentTarget.reset();
+  const formData = {
+    email: email.value,
+    password: password.value,
+  };
+  console.log(formData);
+  event.currentTarget.reset();
 }
