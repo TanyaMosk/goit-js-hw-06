@@ -13,24 +13,25 @@ const images = [
   },
 ];
 
-const image = document.querySelector(".gallery");
-
+const imageEl = document.querySelector(".gallery");
 
 const markup = images
   .map(
-    ({ url, alt }) => `<li class = "galery-item">
-  <img src="${url}" alt="${alt}" width = "360" height = "220"  >
+    ({ url, alt }) => `<li class = "gallery-item">
+  <img class = "gallery-img" src="${url}" alt="${alt}" >
 </li>`
   )
   .join("");
+imageEl.insertAdjacentHTML("beforeend", markup);
+imageEl.style.listStyle = "none";
+imageEl.style.display = "flex";
+imageEl.style.flexWrap = "wrap";
+imageEl.style.justifyContent = "center";
+imageEl.style.gap = "30px";
 
-image.insertAdjacentHTML("beforeend", markup);
-
-console.log(images);
-
-
-
-
-
-
-
+const galleryImages = document.querySelectorAll(".gallery-img");
+galleryImages.forEach((image) => {
+  image.style.width = "360px";
+  image.style.height = "220px";
+  image.style.borderRadius = "5px";
+});
