@@ -42,20 +42,37 @@ refs.destroyElement.addEventListener("click", destroyBoxes);
 //   createBoxes(elements);
 // }
 
-function createBoxes() {
+// function createBoxes() {
   
-  refs.boxes.innerHTML = "";   
-  let elements = refs.control.value;
+//   refs.boxes.innerHTML = "";   
+//   let elements = refs.control.value;
+//   let basicSize = 30;
+
+//   for (let i = 0; i < elements; i += 1) {
+//     let div = document.createElement("div");
+//     div.style.width = basicSize + 10 * i + "px";
+//     div.style.height = basicSize + 10 * i + "px";
+//     div.style.backgroundColor = getRandomHexColor();
+//     refs.boxes.append(div);
+//   }
+// };
+
+
+function createBoxes() {
+  refs.boxes.innerHTML = "";
+  // Перетворюємо введене значення у число
+  let elementsCount = parseInt(refs.control.value); 
   let basicSize = 30;
 
-  for (let i = 0; i < elements; i += 1) {
+  Array.from({ length: elementsCount }).forEach((_, i) => {
     let div = document.createElement("div");
     div.style.width = basicSize + 10 * i + "px";
     div.style.height = basicSize + 10 * i + "px";
     div.style.backgroundColor = getRandomHexColor();
     refs.boxes.append(div);
-  }
-};
+  });
+}
+
 
 function destroyBoxes() {
   refs.boxes.innerHTML = "";   
