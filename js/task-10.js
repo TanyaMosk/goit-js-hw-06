@@ -34,25 +34,29 @@ const refs = {
   boxes: document.querySelector("#boxes"),
 };
 
-refs.createElement.addEventListener("click", getElement);
+refs.createElement.addEventListener("click", createBoxes);
 refs.destroyElement.addEventListener("click", destroyBoxes);
 
-function getElement() {
-  let elements = refs.control.value;
-  createBoxes(elements);
-}
+// function getElement() {
+//   let elements = refs.control.value;
+//   createBoxes(elements);
+// }
 
-function createBoxes(amount) {
+function createBoxes() {
+  
+  refs.boxes.innerHTML = "";   
+  let elements = refs.control.value;
   let basicSize = 30;
-  for (let i = 0; i < amount; i += 1) {
+
+  for (let i = 0; i < elements; i += 1) {
     let div = document.createElement("div");
     div.style.width = basicSize + 10 * i + "px";
     div.style.height = basicSize + 10 * i + "px";
     div.style.backgroundColor = getRandomHexColor();
     refs.boxes.append(div);
   }
-}
+};
 
 function destroyBoxes() {
-  refs.boxes.innerHTML = "";
-}
+  refs.boxes.innerHTML = "";   
+};
